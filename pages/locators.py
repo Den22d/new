@@ -8,3 +8,7 @@ class LoginPageLocators():
     LOG_LINK=(By.CSS_SELECTOR,"[value='Log In']")
 class ProductPageLocators():
     B_LINK=(By.CSS_SELECTOR,".btn-add-to-basket")
+    SUCCESS_MESSAGE=(By.CSS_SELECTOR,"#message .alert:nth-child(1) .alertinner")
+class BasePageLocators():
+    LOGIN_LINK = (By.CSS_SELECTOR, "#login_link")
+    LOGIN_LINK_INVALID = (By.CSS_SELECTOR, "#login_link_inc")

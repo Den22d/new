@@ -19,3 +19,11 @@ class ProductPage(BasePage):
         print(x[0].text,x[2].text )
         assert x1 in x[0].text,"no name"
         assert x2 in x[2].text,"no price"
+    def should_not_be_success_message(self):
+         assert self.is_not_element_present(*ProductPageLocators.SUCCESS_MESSAGE), \
+       "Success message is presented, but should not be"
+    def should_see_as_disappearing_message(self):
+        assert self.is_disappeared(*ProductPageLocators.SUCCESS_MESSAGE), \
+        "Success message is presented, but it must disappear"
+    
+  
