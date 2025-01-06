@@ -1,7 +1,7 @@
 ﻿from pages.base_page import BasePage
 from pages.locators import LoginPageLocators
 from selenium.webdriver.common.by import By
-
+import time
 class LoginPage(BasePage):
     
     
@@ -23,6 +23,12 @@ class LoginPage(BasePage):
         # реализуйте проверку, что есть форма регистрации на странице
         
         assert self.is_element_present(*LoginPageLocators.REG_LINK), "No Reg Form"
+    def register_new_user(self,email,password):
+        email = str(time.time()) + "@fakemail.org"
+        self.browser.find_element(*LoginPageLocators.EMAIL_LINK).send_keys(email)
+        self.browser.find_element(*LoginPageLocators.PW1_LINK).send_keys(password)
+        self.browser.find_element(*LoginPageLocators.PW2_LINK).send_keys(password)
+        self.browser.find_element(*LoginPageLocators.REG_LINK).click()
 
    
     
